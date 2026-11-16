@@ -8,11 +8,11 @@
 |---|---|---|---|
 | G0 | 원문·LMS 제출 규칙 | PARTIAL | Notion 원문 확인. LMS 기한·입력 형식 미확인 |
 | G1 | 3개 OSS 조사·선정 | SOURCE_VERIFIED | A Dark Room / 2048 / Hextris, 라이선스와 소스·데모 안내 확인 |
-| G2 | 직접 실행·2개 체험 | NOT_DONE | 직접 실행·테스트 A/B, 실행 화면 2장 이상 필요 |
+| G2 | 자동 브라우저로 2개 기능/설정 체험 | AUTO_VERIFIED (학생 직접 체험 미완료) | 직접 실행·테스트 A/B, 실행 화면 2장 이상 필요 |
 | G3 | Fork 및 코드 수정 | CODE_COMMITTED | 본인 Fork, script/room.js 10→5, Commit SHA 확인 |
-| G3b | 수정 전후 실제 비교 | NOT_DONE | 원본/변경본에서 동일 버튼 쿨다운 관찰 |
+| G3b | 자동 브라우저 원본·패치 동작 비교 | AUTO_VERIFIED (Fork 배포 미검증) | 원본/변경본에서 동일 버튼 쿨다운 관찰 |
 | G4 | 최종 추천서 | DRAFT | 프로젝트 정보·재미·수정 파일/변수·30~60분 실습안·최종 3~5문장 |
-| G5 | 4~6p PDF 보고서 | DRAFT | 3개 소개·실행 증빙 2장·실험 표·코드 diff·추천서 |
+| G5 | 6페이지 PDF 자동화 증빙 포함 | DRAFT_WITH_AUTOMATED_EVIDENCE | 3개 소개·실행 증빙 2장·실험 표·코드 diff·추천서 |
 | G6 | 정적 웹 배포 | OPTIONAL | 직접 배포 URL은 선택사항. 확인한 URL만 제출 |
 | G7 | LMS 제출 | NOT_DONE | 제출 완료 기록 필수 |
 
@@ -63,3 +63,13 @@
 - 예외 조건: Debug 활성 시 쿨다운이 0으로 변경되며 `doubleTime` 활성 시 체감 시간이 절반이므로 비교 시 통제 필요.
 - 직접 테스트와 증빙 작성에 사용할 `OSS_PLAYGROUND_VERIFICATION.md`를 GitHub에 새로 커밋: https://github.com/Dowon-Kang/adarkroom/commit/342b709d421ee6ffc64cd51b63868fc838c581ef
 - **정적 소스 검증만 확인됨**. 플레이 실측·화면 캡처 2장·수정본 배포·LMS 제출은 여전히 미완료.
+
+## 2026-11-16 추가 실측 — 자동 브라우저 (학생 직접 플레이와 구분)
+- 공식 데모 `https://doublespeakgames.github.io/adarkroom/?lang=en`을 격리된 실제 웹 브라우저에서 열고 로컬 저장 상태를 지운 후 `light fire`를 클릭함: 게임 제목이 `A Firelit Room`으로 변경되고 `stoke fire` 버튼이 일시적으로 disabled 상태로 바뀜.
+- 원본(`_STOKE_COOLDOWN: 10`)의 버튼 재활성화 **10.04초**, 단회 자동 측정.
+- 원본 데모의 HTTP 응답에서 `script/room.js`의 값 **10→5**를 정확히 한 번 치환하여 새로고침 및 UI 클릭: 버튼 재활성화 **5.05초**, 단회 자동 측정. 이 검증은 **실제 Fork 사이트가 배포·열렸다는 의미가 아님**.
+- 언어 변경: `?lang=ko`에서 `어두운 방`, `불 피우기`, `방은 너무 춥다.` 텍스트 확인.
+- 실제 자동 브라우저 JPEG 화면 세 장: `evidence/original_after_click.jpg`, `evidence/patched_after_click.jpg`, `evidence/korean_initial.jpg`.
+- 설명 및 증빙 출처: `evidence/README.md`.
+- 6페이지 PDF(자동 검증 초안): `deliverables/OSS_Playground_Hunter_A_Dark_Room_AUTOMATION_DRAFT.pdf`.
+- 학생 본인 직접 실행·화면 촬영, LMS 제출은 여전히 **미완료**. 개인 Pages URL은 확인 당시 404.

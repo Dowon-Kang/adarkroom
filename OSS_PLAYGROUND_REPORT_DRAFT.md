@@ -119,3 +119,17 @@ A Dark Room은 브라우저에서 사용자의 입력과 게임 상태 변화가
 - [ ] LMS 제출 완료
 
 **실제 실행하지 않은 결과를 경험담으로 작성하거나 캡처를 임의 생성하지 않는다.**
+
+## 2026-11-16 자동 브라우저 실측 추가 (기존 '미실행' 문구를 대체하는 범위 구분)
+
+**자동 브라우저는 실행 완료**, 다만 **학생 본인 직접 실행은 미완료**. 따라서 앞의 직접 체험 표에 남아 있는 '미실행'은 학생 본인 체험을 뜻한다.
+
+- 테스트 A: 공식 영어 데모의 `light fire`를 자동 클릭해 `A Firelit Room` 및 `stoke fire` 활성화·쿨다운 표시 확인.
+- 테스트 B: `?lang=ko`에서 `어두운 방`, `불 피우기` 등 한국어 표현 확인.
+- 원본 버튼 재활성화 10.04초; 동일 페이지의 `room.js` 응답을 10→5로 변경해 실측한 수정안은 5.05초. 각각 1회 측정이며 브라우저 지연 포함.
+- **중요:** 5초 수정안은 원본 페이지에서 네트워크 응답만 정확하게 변형한 재현 실험이며, 개인 GitHub Pages에서 실행한 것이 아니다. 2026-11-16 현재 개인 Pages 주소는 404.
+- 실제 자동화 캡처 3장: [원본 클릭 후](./evidence/original_after_click.jpg), [수정안 클릭 후](./evidence/patched_after_click.jpg), [한국어 초기 화면](./evidence/korean_initial.jpg).
+- 이미지 취득과 범위·한계 기록: [evidence/README.md](./evidence/README.md)
+- 실측 자료를 포함한 6페이지 PDF: [deliverables/OSS_Playground_Hunter_A_Dark_Room_AUTOMATION_DRAFT.pdf](./deliverables/OSS_Playground_Hunter_A_Dark_Room_AUTOMATION_DRAFT.pdf)
+
+**이 자동화 결과를 원문에서 요구하는 '학생 본인의 직접 체험'으로 허위 기재해서는 안 됨.**
