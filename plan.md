@@ -55,3 +55,11 @@
 - [ ] 추천서 세부 항목 누락 0건
 - [ ] 보고서 PDF 4~6페이지 내외
 - [ ] LMS 최종 제출 완료
+
+## 2026-11-16 GitHub 연결 재검증 기록
+- 실제 개인 Fork와 상위 저장소 관계 확인: `Dowon-Kang/adarkroom` ← `doublespeakgames/adarkroom`.
+- 원본 `script/room.js`의 `_STOKE_COOLDOWN` = 10, 개인 Fork에서는 = 5임을 GitHub 원본 코드로 대조.
+- `lightButton`, `stokeButton`이 해당 값을 사용하고, `Button.js`가 초를 밀리초로 바꾸는 소스 경로 재확인.
+- 예외 조건: Debug 활성 시 쿨다운이 0으로 변경되며 `doubleTime` 활성 시 체감 시간이 절반이므로 비교 시 통제 필요.
+- 직접 테스트와 증빙 작성에 사용할 `OSS_PLAYGROUND_VERIFICATION.md`를 GitHub에 새로 커밋: https://github.com/Dowon-Kang/adarkroom/commit/342b709d421ee6ffc64cd51b63868fc838c581ef
+- **정적 소스 검증만 확인됨**. 플레이 실측·화면 캡처 2장·수정본 배포·LMS 제출은 여전히 미완료.
